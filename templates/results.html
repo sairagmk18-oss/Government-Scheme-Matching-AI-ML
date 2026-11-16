@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Scheme Recommendations</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5f9;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .scheme {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
+
+        .score {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        .final-score {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .high {
+            color: forestgreen;
+            font-weight: bold;
+        }
+
+        .possible {
+            color: rebeccapurple;
+            font-weight: bold;
+        }
+
+        .not {
+            color: orangered;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>Government Scheme Recommendations</h1>
+
+    <a href="/">
+        ← Check another profile
+    </a>
+
+
+    {% for scheme in results %}
+
+    <div class="scheme">
+
+        <h2>
+            {{ loop.index }}. {{ scheme.scheme_name }}
+        </h2>
+
+        <p>
+            {{ scheme.description }}
+        </p>
+
+
+        <p class="score">
+            Eligibility Score:
+            <strong>
+                {{ scheme.eligibility_score }}%
+            </strong>
+        </p>
+
+
+        <p class="score">
+            AI Relevance Score:
+            <strong>
+                {{ scheme.ai_score }}%
+            </strong>
+        </p>
+
+
+        <p class="final-score">
+            Final Recommendation Score:
+            {{ scheme.final_score }}%
+        </p>
+
+
+        {% if scheme.status == "Highly Eligible" %}
+
+            <p class="high">
+                ✓ Highly Eligible
+            </p>
+
+        {% elif scheme.status == "Possibly Eligible" %}
+
+            <p class="possible">
+                ⚠ Possibly Eligible
+            </p>
+
+        {% else %}
+
+            <p class="not">
+                ✗ Not Eligible
+            </p>
+
+        {% endif %}
+
+
+        <h3>Benefits</h3>
+
+        <p>
+            {{ scheme.benefits }}
+        </p>
+
+
+        <h3>Eligibility Analysis</h3>
+
+        <ul>
+
+        {% for reason in scheme.reasons %}
+
+            <li>
+                {{ reason }}
+            </li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+    {% endfor %}
+
+
+</div>
+
+</body>
+
+</html>

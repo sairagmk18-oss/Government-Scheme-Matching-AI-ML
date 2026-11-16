@@ -1,0 +1,6 @@
+scheme_id,scheme_name,description,min_age,max_age,max_income,occupation,category,gender,state,education,student,farmer,disability,benefits
+S001,Student Scholarship,Financial support for eligible students,17,30,250000,Student,All,All,All,Any,Yes,No,No,Educational financial assistance
+S002,Farmer Support Scheme,Financial assistance for farmers,18,65,500000,Farmer,All,All,All,Any,No,Yes,No,Agricultural financial support
+S003,Skill Development Program,Skill development and training opportunities,18,35,400000,Any,All,All,All,Any,Any,Any,No,Free skill development training
+S004,Senior Citizen Pension,Financial assistance for senior citizens,60,100,300000,Any,All,All,All,Any,No,No,No,Senior citizen financial assistance
+S005,Women Entrepreneurship Scheme,Support for women entrepreneurs,18,55,600000,Any,All,Female,All,Any,Any,Any,No,Entrepreneurship support
